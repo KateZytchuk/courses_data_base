@@ -184,6 +184,28 @@ static String choice;
 			}
 		}	
 	}
+	ActionSave save = new ActionSave();
+	public class ActionSave implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// to do
+		}
+		
+	}
+	ActionLoad load = new ActionLoad();
+	public class ActionLoad implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub			
+		}
+		
+	}	
 	private void my_reload()
 	{
 		lst = pd.read();

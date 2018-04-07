@@ -34,8 +34,7 @@ public class Person_DAO_JSON  implements  Person_DAO
 		br.close();	
 		String [] st = str.split("[\\W]+");
 		if(!st[1].equals("Persons"))
-		{
-			
+		{			
 			throw new IOException();
 		}
 		else

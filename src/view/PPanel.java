@@ -94,7 +94,7 @@ public class PPanel extends JFrame
 		sv.setSize(80, 30);
 		sv.setLocation(450, 100);
 		my_pnl.add(sv);
-		//sv.addActionListener(dm.delete);
+		sv.addActionListener(dm.save);
 		//_____________________________
 		// добавляем кнопку "Загрузить"
 		//_____________________________
@@ -102,6 +102,6 @@ public class PPanel extends JFrame
 		ld.setSize(80, 30);
 		ld.setLocation(620, 100);
 		my_pnl.add(ld);
-		//sv.addActionListener(dm.delete);
+		sv.addActionListener(dm.load);
 	}
 }
