@@ -14,7 +14,7 @@ public class PPanel extends JFrame
 {
 	JFrame my_pnl = new JFrame();
 	JScrollPane scr;
-	 static JTable tbl;
+	static JTable tbl;
 	Person_DM dm = new Person_DM();
 	public PPanel()
 	{	
@@ -51,7 +51,7 @@ public class PPanel extends JFrame
 		scr.setLocation(10, 10);
 		my_pnl.add(scr);
 	}
-	
+
 	public void add_buttons()
 	{
 		//_____________________________
@@ -87,5 +87,21 @@ public class PPanel extends JFrame
 		dlt.setLocation(720, 530);
 		my_pnl.add(dlt);
 		dlt.addActionListener(dm.delete);
+		//_____________________________
+		// добавляем кнопку "Сохранить"
+		//_____________________________
+		JButton sv = new JButton ("Save");
+		sv.setSize(80, 30);
+		sv.setLocation(450, 100);
+		my_pnl.add(sv);
+		//sv.addActionListener(dm.delete);
+		//_____________________________
+		// добавляем кнопку "Загрузить"
+		//_____________________________
+		JButton ld = new JButton ("Load");
+		ld.setSize(80, 30);
+		ld.setLocation(620, 100);
+		my_pnl.add(ld);
+		//sv.addActionListener(dm.delete);
 	}
 }
