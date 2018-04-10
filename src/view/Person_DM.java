@@ -21,11 +21,11 @@ public class Person_DM extends AbstractTableModel
 {
 	List<Person> lst = new ArrayList<Person>();
 	Person_DAO pd;
-/*	public Person_DM()
+	public Person_DM()
 	{
 		pd = new Person_DAO_JSON(); //��� ������ � ������ ����� ������� ���
 		lst = pd.read();	
-	}*/
+	}
 static String choice;
 	
 	Combobox aCombo = new Combobox();

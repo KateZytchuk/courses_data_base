@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class PDialog_all extends JDialog
 {
 	JDialog additional_wndw = new JDialog();
-	static JTextField text_id, text_fname, text_lname, text_age;
+	JTextField text_id, text_fname, text_lname, text_age;
 	JButton ok, cancel;
 	boolean isOK = false;
 	public PDialog_all()
