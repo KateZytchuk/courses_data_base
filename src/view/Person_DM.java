@@ -20,10 +20,11 @@ import DAL.Person_DAO_H2;
 public class Person_DM extends AbstractTableModel
 {
 	List<Person> lst = new ArrayList<Person>();
-	Person_DAO pd;
+	Person_DAO pd = null;
+	PDialog_all dlg;
 	public Person_DM()
 	{
-		pd = new Person_DAO_JSON(); //��� ������ � ������ ����� ������� ���
+		pd = new Person_DAO_JSON();
 		lst = pd.read();	
 	}
 static String choice;
@@ -110,9 +111,9 @@ static String choice;
 			PDialog_all dlg = new PDialog_all();
 			//dlg.setModal(true);
 			//dlg.setVisible(true);
-			if (dlg.isOK == true)
+			if (dlg.isOk == true)
 			{
-				Person p = new Person(Integer.parseInt(dlg.text_id.getText()), dlg.text_lname.getText(), dlg.text_fname.getText(), Integer.parseInt(dlg.text_age.getText()));
+				Person p = new Person(Integer.parseInt(dlg.fid.getText()), dlg.flname.getText(), dlg.ffname.getText(), Integer.parseInt(dlg.fage.getText()));
 				pd.create(p);
 				my_reload();
 			}
@@ -143,9 +144,9 @@ static String choice;
 		public void actionPerformed(ActionEvent e) 
 		{
 			PDialog_all dlg = new PDialog_all();
-			if (dlg.isOK == true)
+			if (dlg.isOk == true)
 			{
-				Person p = new Person(Integer.parseInt(dlg.text_id.getText()), dlg.text_lname.getText(), dlg.text_fname.getText(), Integer.parseInt(dlg.text_age.getText()));
+				Person p = new Person(Integer.parseInt(dlg.fid.getText()), dlg.flname.getText(), dlg.ffname.getText(), Integer.parseInt(dlg.fage.getText()));
 				pd.update(p);
 				dlg.dispose();
 				my_reload();
@@ -166,7 +167,7 @@ static String choice;
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			PDialog_all dlg = new PDialog_all();
+			
 			/*int my_id = Integer.parseInt(PPanel.text_id.getText());
 			String my_fname = PPanel.text_fname.getText();
 			String my_lname = PPanel.text_lname.getText();
@@ -175,9 +176,9 @@ static String choice;
 			pd.delete(my);	
 			my_reload();
 			JOptionPane.showMessageDialog(null, "������� ������ ��  ��");*/
-			if (dlg.isOK == true)
+			if (dlg.isOk == true)
 			{
-				Person p = new Person(Integer.parseInt(dlg.text_id.getText()), dlg.text_lname.getText(), dlg.text_fname.getText(), Integer.parseInt(dlg.text_age.getText()));
+				Person p = new Person(Integer.parseInt(dlg.fid.getText()), dlg.flname.getText(), dlg.ffname.getText(), Integer.parseInt(dlg.fage.getText()));
 				pd.delete(p);
 				dlg.dispose();
 				my_reload();
@@ -206,6 +207,18 @@ static String choice;
 		}
 		
 	}	
+	ActionOK my_ok = new ActionOK();
+	public class ActionOK implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			dlg.isOk = true;
+			dlg.setVisible(false);
+		}
+		
+	}
 	private void my_reload()
 	{
 		lst = pd.read();
