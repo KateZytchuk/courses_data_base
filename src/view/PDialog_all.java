@@ -73,35 +73,44 @@ public class PDialog_all extends JDialog
 		add(ok);
 
 		fid = new JTextField(strId);
-		fid.setBounds(120, 50, 100, 25);
+		fid.setLocation(80, 30);
+		fid.setSize(250, 25);
 		add(fid);
 
+		flname = new JTextField(strLname);
+		flname.setLocation(80, 85);
+		flname.setSize(250, 25);
+		add(flname);
+		
 		ffname = new JTextField(strFname);
-		ffname.setBounds(400, 50, 200, 25);
+		ffname.setLocation(80, 140);
+		ffname.setSize(250, 25);
 		add(ffname);
 
 		fage = new JTextField(strAge);
-		fage.setBounds(120, 100, 100, 25);
+		fage.setLocation(80, 195);
+		fage.setSize(250, 25);
 		add(fage);
-
-		flname = new JTextField(strLname);
-		flname.setBounds(400, 100, 200, 25);
-		add(flname);
+	
 
 		JLabel Jfid = new JLabel("Id");
-		Jfid.setBounds(60, 50, 200, 25);
+		Jfid.setLocation(20, 10);
+		Jfid.setSize(70, 65);
 		add(Jfid);
 		
 		JLabel Jflname = new JLabel("Lname");
-		Jflname.setBounds(350, 100, 200, 25);
+		Jflname.setLocation(15, 65);
+		Jflname.setSize(70, 65);
 		add(Jflname);
 		
 		JLabel JFName = new JLabel("Fname");
-		JFName.setBounds(350, 50, 200, 25);
+		JFName.setLocation(15, 120);
+		JFName.setSize(70, 65);
 		add(JFName);
 		
 		JLabel JAge = new JLabel("Age");
-		JAge.setBounds(60, 100, 200, 25);
+		JAge.setLocation(20, 175);
+		JAge.setSize(70, 65);
 		add(JAge);
 		
 		setLocationRelativeTo(null);
