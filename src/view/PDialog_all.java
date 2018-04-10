@@ -26,7 +26,6 @@ public class PDialog_all extends JDialog
 	static String choice;
 	public PDialog_all()
 	{	
-		//setBounds(450, 100, 700, 350);
 		setSize(400, 350);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(null);
