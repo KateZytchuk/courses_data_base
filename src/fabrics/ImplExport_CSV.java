@@ -2,8 +2,13 @@ package fabrics;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import view.Person;
+import DAL.Person_DAO_CSV;
 
 public class ImplExport_CSV implements ImplExport
 {
@@ -17,15 +22,23 @@ public class ImplExport_CSV implements ImplExport
 	@Override
 	public void save(File file, ArrayList<Person> pp) 
 	{
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	@Override
-	public ArrayList<Person> load(File file, ArrayList<Person> pp) 
+	public List<Person> load(File file, List<Person> pp) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		JFileChooser wndw_choise = new JFileChooser();
+		FileNameExtensionFilter my_filter = new FileNameExtensionFilter("Some text files", "csv");
+		wndw_choise.setCurrentDirectory(file);
+		wndw_choise.setFileFilter(my_filter);
+		wndw_choise.setAcceptAllFileFilterUsed(false);
+		int ret_val = wndw_choise.showDialog(null, "Choose file");
+		if(ret_val == wndw_choise.APPROVE_OPTION)
+		{
+			Person_DAO_CSV my = new  Person_DAO_CSV();
+			pp = my.read();	
+		}
+		return pp;
 	}
-
 }

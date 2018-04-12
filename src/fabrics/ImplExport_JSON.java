@@ -2,6 +2,7 @@ package fabrics;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import view.Person;
 
@@ -17,14 +18,12 @@ public class ImplExport_JSON implements ImplExport
 	@Override
 	public void save(File file, ArrayList<Person> pp) 
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public ArrayList<Person> load(File file, ArrayList<Person> pp) 
+	public List<Person> load(File file, List<Person> pp) 
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
