@@ -2,10 +2,13 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
 
 import DAL.Person_DAO;
@@ -14,6 +17,9 @@ import DAL.Person_DAO_JSON;
 import DAL.Person_DAO_Sql;
 import DAL.Person_DAO_XML;
 import DAL.Person_DAO_YAML;
+import fabrics.IESelect;
+import fabrics.ImplExport;
+import fabrics.ImplExport_JSON;
 import DAL.Person_DAO_Mock;
 import DAL.Person_DAO_H2;
 
@@ -24,7 +30,7 @@ public class Person_DM extends AbstractTableModel
 	PDialog_all dlg;
 	public Person_DM()
 	{
-		pd = new Person_DAO_JSON();
+		pd = new Person_DAO_Mock();
 		lst = pd.read();	
 	}
 static String choice;
@@ -199,11 +205,24 @@ static String choice;
 	ActionLoad load = new ActionLoad();
 	public class ActionLoad implements ActionListener
 	{
-
 		@Override
 		public void actionPerformed(ActionEvent e) 
-		{
-			// TODO Auto-generated method stub			
+		{			
+			JFileChooser wndw_choise = new JFileChooser();
+			File file = wndw_choise.getSelectedFile();
+			FileNameExtensionFilter my_filter = new FileNameExtensionFilter("Some text files", "csv", "json","xml", "yml");
+			//ImplExport ie = IESelect.getIE(file, pp);
+			wndw_choise.setCurrentDirectory(new File("D:\\JAVA\\Data_Bases\\my_text_files"));
+			wndw_choise.setFileFilter(my_filter);
+			//wndw_choise.setAcceptAllFileFilterUsed(false);
+			int ret_val = wndw_choise.showDialog(null, "Choose file");
+			/*if(ret_val == wndw_choise.APPROVE_OPTION)
+			{
+				Person_DAO_CSV my = new  Person_DAO_CSV();
+				//pp = my.read();	
+			}*/
+			//return ret_val;
+			
 		}
 		
 	}	

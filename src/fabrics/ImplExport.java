@@ -8,6 +8,6 @@ import view.Person;
 
 public interface ImplExport 
 {
-	public void save(File file, ArrayList<Person> pp);
-	public List<Person> load (File file, List<Person> pp);
+	public void save();
+	public List<Person> load ();
 }

@@ -16,13 +16,13 @@ public class ImplExport_JSON implements ImplExport
 		this.file = file;
 	}
 	@Override
-	public void save(File file, ArrayList<Person> pp) 
+	public void save() 
 	{
 
 	}
 
 	@Override
-	public List<Person> load(File file, List<Person> pp) 
+	public List<Person> load() 
 	{
 		return null;
 	}

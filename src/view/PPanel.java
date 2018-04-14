@@ -102,6 +102,6 @@ public class PPanel extends JFrame
 		ld.setSize(80, 30);
 		ld.setLocation(620, 100);
 		my_pnl.add(ld);
-		sv.addActionListener(dm.load);
+		ld.addActionListener(dm.load);
 	}
 }

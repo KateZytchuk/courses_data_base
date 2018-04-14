@@ -16,13 +16,13 @@ public class ImplExport_XML implements ImplExport
 		this.file = file;
 	}
 	@Override
-	public void save(File file, ArrayList<Person> pp) {
+	public void save() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Person> load(File file, List<Person> pp) {
+	public List<Person> load() {
 		// TODO Auto-generated method stub
 		return null;
 	}

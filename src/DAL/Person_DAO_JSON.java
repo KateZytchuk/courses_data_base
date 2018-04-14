@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import view.PDialog_all;
 import view.Person;
 
 public class Person_DAO_JSON  implements  Person_DAO
@@ -18,7 +19,7 @@ public class Person_DAO_JSON  implements  Person_DAO
 	@Override
 	public void create(Person p) 
 	{
-		// TODO Auto-generated method stub		
+
 	}
 	@Override
 	public List<Person> read() 
@@ -26,24 +27,24 @@ public class Person_DAO_JSON  implements  Person_DAO
 		List <Person> pp = new ArrayList<Person>();	
 		try
 		{
-		FileInputStream fis = new FileInputStream(file);
-		InputStreamReader isr = new InputStreamReader(fis);
-		BufferedReader br = new BufferedReader(isr);
+			FileInputStream fis = new FileInputStream(file);
+			InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(isr);
 
-		String str = br.readLine();
-		br.close();	
-		String [] st = str.split("[\\W]+");
-		if(!st[1].equals("Persons"))
-		{			
-			throw new IOException();
-		}
-		else
-		{
-			Person tmp = null;
-			for (int i =1; i< st.length; i++)
+			String str = br.readLine();
+			br.close();	
+			String [] st = str.split("[\\W]+");
+			if(!st[1].equals("Persons"))
+			{			
+				throw new IOException();
+			}
+			else
 			{
-				switch(st[i])
+				Person tmp = null;
+				for (int i =1; i< st.length; i++)
 				{
+					switch(st[i])
+					{
 					case "id":
 						tmp = new Person();
 						tmp.id = Integer.parseInt(st[++i]);
@@ -58,9 +59,9 @@ public class Person_DAO_JSON  implements  Person_DAO
 						tmp.id = Integer.parseInt(st[++i]);
 						pp.add(tmp);
 						break;
-				}
-			}		
-		}
+					}
+				}		
+			}
 		}
 		catch(IOException ex)
 		{
@@ -71,11 +72,11 @@ public class Person_DAO_JSON  implements  Person_DAO
 	@Override
 	public void update(Person p) 
 	{
-		// TODO Auto-generated method stub	
+		
 	}
 	@Override
 	public void delete(Person p) 
 	{
-		// TODO Auto-generated method stub		
+			
 	}
 }
