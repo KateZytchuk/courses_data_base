@@ -15,7 +15,7 @@ import view.Person;
 
 public class Person_DAO_JSON  implements  Person_DAO
 {
-	File file = new File("D:\\JAVA\\Data_Bases\\my.json");	
+	File file = new File("D:\\JAVA\\Data_Bases\\my_text_files\\my.json");	
 	@Override
 	public void create(Person p) 
 	{
@@ -57,9 +57,9 @@ public class Person_DAO_JSON  implements  Person_DAO
 						break;
 					case "age":
 						tmp.id = Integer.parseInt(st[++i]);
-						pp.add(tmp);
-						break;
+						break;		
 					}
+					pp.add(tmp);
 				}		
 			}
 		}

@@ -8,7 +8,7 @@ import view.Person;
 
 public class IESelect 
 {
-	static ImplExport getIE(File file, ArrayList<Person> pp)
+	public static ImplExport getIE(File file, ArrayList<Person> pp)
 	{
 		ImplExport ie = null;
 		String name = file.getName();
