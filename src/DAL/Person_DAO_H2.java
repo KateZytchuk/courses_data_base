@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -15,82 +16,69 @@ import view.Person;
 
 public class Person_DAO_H2  implements  Person_DAO
 {
-	/* Connection con;
-	 Statement stmt = null;
-	 String query = "select * from persona";
-	 ResultSet rs = null;
-	 
-	 public static java.sql.Connection connect() 
-	 {
-	  java.sql.Connection con = null;
-	  JOptionPane.showMessageDialog(null, "00000");
-	  try
-	  {
-		  JOptionPane.showMessageDialog(null, "11111");
-	   Class.forName("org.h2.Driver");
-	   JOptionPane.showMessageDialog(null, "22222");
-	  con = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-	  JOptionPane.showMessageDialog(null, "333333");
-	  }
-	  catch(ClassNotFoundException e) 
-	  {
-	   JOptionPane.showMessageDialog(null, "Драйвер не найден");
-	   System.exit(1);
-	  }
-	  catch(SQLException e)
-	  {
-	   JOptionPane.showMessageDialog(null, "Ошибка: " + e.getMessage());
-	   System.exit(1);
-	  }
-	  return con;
-	 }*/
-	// Connection con;
-	// Statement stmt = null;
-	//String query = "select * from persona";
-	// ResultSet rs = null;
-	 
-	 public static Connection connect() 
-	 {
-	  Connection con = null;
-	  try
-	  {
-	   Class.forName("org.h2.Driver");
-	   con =DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-	  }
-	  catch(ClassNotFoundException e) 
-	  {
-	   JOptionPane.showMessageDialog(null, "Драйвер не найден");
-	   System.exit(1);
-	  }
-	  catch(SQLException e)
-	  {
-	   JOptionPane.showMessageDialog(null, "Ошибка: " + e.getMessage());
-	   System.exit(1);
-	  }
-	  return con;
-	 }
-	public static void main(String[] args) 
+	ArrayList<Person> pp = new ArrayList<Person>();
+	@Override
+	public void create(Person p) 
 	{
-		Connection con = connect ();
+		String arg = "INSERT INTO MY_PERSONS (ID, LNAME, FNAME, AGE) \n" +
+				" VALUES ("+p.id+", '"+p.lname+"', '"+p.fname+"',  "+p.age+");";
+		try{
+			Connection con = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(arg);
+			stmt.close();
+			con.close();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+
 	}
 	@Override
-	public void create(Person p) {
-		// TODO Auto-generated method stub
-		
+	public List<Person> read() 
+	{
+		pp = new ArrayList<Person>();
+		try{
+			Connection con = DriverManager.getConnection("jdbc:h2:~/test ", "sa", "");
+			Statement stmn = (Statement) con.createStatement();
+			ResultSet rs = stmn.executeQuery("select * from MY_PERSONS");
+			while(rs.next()){
+				pp.add(new Person(rs.getInt(1), rs.getString("Fname"), rs.getString("Lname"), rs.getInt(4)));
+			}
+			rs.close();
+			stmn.close();
+			con.close();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+		return pp;
 	}
 	@Override
-	public List<Person> read() {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Person p) 
+	{
+		String arg = "UPDATE MY_PERSONS SET LNAME='"+p.lname+"', FNAME='"+p.fname+"',  AGE="+p.age+" WHERE MY_PERSONS.ID="+p.id+";";
+		try{
+			Connection con = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(arg);
+			stmt.close();
+			con.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
 	}
 	@Override
-	public void update(Person p) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void delete(Person p) {
-		// TODO Auto-generated method stub
-		
+	public void delete(Person p) 
+	{
+		String arg = "DELETE FROM MY_PERSONS WHERE MY_PERSONS.ID="+p.id+";";
+		try{
+			Connection con = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(arg);
+			stmt.close();
+			con.close();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
 	}
 }

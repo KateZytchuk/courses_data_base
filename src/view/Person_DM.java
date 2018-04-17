@@ -30,7 +30,7 @@ public class Person_DM extends AbstractTableModel
 	PDialog_all dlg;
 	public Person_DM()
 	{
-		pd = new Person_DAO_Sql();
+		pd = new Person_DAO_H2();
 		lst = pd.read();	
 	}
 static String choice;
