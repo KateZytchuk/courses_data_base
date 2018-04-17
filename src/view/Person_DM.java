@@ -30,7 +30,7 @@ public class Person_DM extends AbstractTableModel
 	PDialog_all dlg;
 	public Person_DM()
 	{
-		pd = new Person_DAO_Mock();
+		pd = new Person_DAO_Sql();
 		lst = pd.read();	
 	}
 static String choice;
@@ -182,6 +182,7 @@ static String choice;
 			pd.delete(my);	
 			my_reload();
 			JOptionPane.showMessageDialog(null, "������� ������ ��  ��");*/
+			PDialog_all dlg = new PDialog_all();
 			if (dlg.isOk == true)
 			{
 				Person p = new Person(Integer.parseInt(dlg.fid.getText()), dlg.flname.getText(), dlg.ffname.getText(), Integer.parseInt(dlg.fage.getText()));

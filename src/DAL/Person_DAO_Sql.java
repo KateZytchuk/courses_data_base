@@ -12,10 +12,10 @@ public class Person_DAO_Sql implements Person_DAO
 	@Override
 	public void create(Person p) 
 	{
-		String arg = "INSERT INTO person (Id, Fname, Lname, Age) \n" +
-				" VALUES ("+p.id+", '"+p.fname+"', '"+p.lname+"', "+p.age+");";
+		String arg = "INSERT INTO my_persons (Id, Fname, Lname, Age) \n" +
+				" VALUES ("+p.id+", '"+p.lname+"', '"+p.fname+"',  "+p.age+");";
 		try{
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edu", "root", "");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_edu", "root", "");
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(arg);
 			stmt.close();
@@ -31,11 +31,11 @@ public class Person_DAO_Sql implements Person_DAO
 	{
 		pp = new ArrayList<Person>();
 		try{
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edu", "root", "");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_edu", "root", "");
 			Statement stmn = (Statement) con.createStatement();
-			ResultSet rs = stmn.executeQuery("select * from person");
+			ResultSet rs = stmn.executeQuery("select * from my_persons");
 			while(rs.next()){
-				pp.add(new Person(rs.getInt(1), rs.getString("Fname"), rs.getString("Lname"), rs.getInt(4)));
+				pp.add(new Person(rs.getInt(1), rs.getString("Lname"), rs.getString("Fname"),  rs.getInt(4)));
 			}
 			rs.close();
 			stmn.close();
@@ -49,9 +49,9 @@ public class Person_DAO_Sql implements Person_DAO
 	@Override
 	public void update(Person p) 
 	{
-		String arg = "UPDATE person SET Fname='"+p.fname+"', Lname='"+p.lname+"', Age="+p.age+" WHERE person.Id="+p.id+";";
+		String arg = "UPDATE my_persons SET  Lname='"+p.lname+"', Fname='"+p.fname+"', Age="+p.age+" WHERE my_persons.id="+p.id+";";
 		try{
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edu", "root", "");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_edu", "root", "");
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(arg);
 			stmt.close();
@@ -64,9 +64,9 @@ public class Person_DAO_Sql implements Person_DAO
 	@Override
 	public void delete(Person p) 
 	{
-		String arg = "DELETE FROM person WHERE person.Id="+p.id+";";
+		String arg = "DELETE FROM my_persons WHERE my_persons.id="+p.id+";";
 		try{
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/edu", "root", "");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_edu", "root", "");
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(arg);
 			stmt.close();
