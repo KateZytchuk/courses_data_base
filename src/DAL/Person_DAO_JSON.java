@@ -1,4 +1,4 @@
-package DAL;
+Ôªøpackage DAL;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -65,7 +65,7 @@ public class Person_DAO_JSON  implements  Person_DAO
 		}
 		catch(IOException ex)
 		{
-			JOptionPane.showMessageDialog(null, "Œÿ»¡ ¿!!!!");
+			JOptionPane.showMessageDialog(null, "–û–®–ò–ë–ö–ê!!!!");
 		}
 		return pp;
 	}

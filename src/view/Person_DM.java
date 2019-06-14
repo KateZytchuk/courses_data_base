@@ -1,4 +1,4 @@
-package view;
+﻿package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -130,7 +130,7 @@ static String choice;
 			Person my = new Person(my_id, my_lname, my_fname,  my_age);
 			pd.create(my);	
 			my_reload();
-			JOptionPane.showMessageDialog(null, "��������� ������ �   ��");*/
+			JOptionPane.showMessageDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ   пїЅпїЅ");*/
 		}
 	}
 	ActionRead read = new ActionRead();
@@ -164,7 +164,7 @@ static String choice;
 			Person my = new Person(my_id, my_lname, my_fname,  my_age);
 			pd.update(my);	
 			my_reload();
-			JOptionPane.showMessageDialog(null, "��������� ������ ��  ��");*/
+			JOptionPane.showMessageDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ  пїЅпїЅ");*/
 		}
 	}
 	ActionDelete delete = new ActionDelete();
@@ -181,7 +181,7 @@ static String choice;
 			Person my = new Person(my_id,  my_lname, my_fname, my_age);
 			pd.delete(my);	
 			my_reload();
-			JOptionPane.showMessageDialog(null, "������� ������ ��  ��");*/
+			JOptionPane.showMessageDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ  пїЅпїЅ");*/
 			PDialog_all dlg = new PDialog_all();
 			if (dlg.isOk == true)
 			{

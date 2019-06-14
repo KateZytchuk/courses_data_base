@@ -1,4 +1,4 @@
-package view;
+п»їpackage view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -19,12 +19,12 @@ public class PPanel extends JFrame
 	public PPanel()
 	{	
 		my_pnl.setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);// что будет при выходе
+		setDefaultCloseOperation(EXIT_ON_CLOSE);// С‡С‚Рѕ Р±СѓРґРµС‚ РїСЂРё РІС‹С…РѕРґРµ
 		add_table();		
 		add_combobox();
 		add_buttons();
-		my_pnl.setSize(830,650);//задаем размеры окна при старте 
-		my_pnl.setVisible(true);//делаем видимым
+		my_pnl.setSize(830,650);//Р·Р°РґР°РµРј СЂР°Р·РјРµСЂС‹ РѕРєРЅР° РїСЂРё СЃС‚Р°СЂС‚Рµ 
+		my_pnl.setVisible(true);//РґРµР»Р°РµРј РІРёРґРёРјС‹Рј
 		my_pnl.setLocationRelativeTo(null);
 	}
 	public void add_combobox()
@@ -55,7 +55,7 @@ public class PPanel extends JFrame
 	public void add_buttons()
 	{
 		//_____________________________
-		// добавляем кнопку "Создать"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "РЎРѕР·РґР°С‚СЊ"
 		//_____________________________
 		JButton crt = new JButton ("Create");
 		crt.setSize(80, 30);
@@ -64,7 +64,7 @@ public class PPanel extends JFrame
 		crt.addActionListener(dm.create);
 
 		//_____________________________
-		// добавляем кнопку "Считать"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "РЎС‡РёС‚Р°С‚СЊ"
 		//_____________________________
 		JButton rd = new JButton ("Read");
 		rd.setSize(80, 30);
@@ -72,7 +72,7 @@ public class PPanel extends JFrame
 		my_pnl.add(rd);
 		rd.addActionListener(dm.read);
 		//_____________________________
-		// добавляем кнопку "Обновить"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "РћР±РЅРѕРІРёС‚СЊ"
 		//_____________________________
 		JButton upd = new JButton ("Update");
 		upd.setSize(80, 30);
@@ -80,7 +80,7 @@ public class PPanel extends JFrame
 		my_pnl.add(upd);
 		upd.addActionListener(dm.update);
 		//_____________________________
-		// добавляем кнопку "Удалить"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "РЈРґР°Р»РёС‚СЊ"
 		//_____________________________
 		JButton dlt = new JButton ("Delete");
 		dlt.setSize(80, 30);
@@ -88,7 +88,7 @@ public class PPanel extends JFrame
 		my_pnl.add(dlt);
 		dlt.addActionListener(dm.delete);
 		//_____________________________
-		// добавляем кнопку "Сохранить"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "РЎРѕС…СЂР°РЅРёС‚СЊ"
 		//_____________________________
 		JButton sv = new JButton ("Save");
 		sv.setSize(80, 30);
@@ -96,7 +96,7 @@ public class PPanel extends JFrame
 		my_pnl.add(sv);
 		sv.addActionListener(dm.save);
 		//_____________________________
-		// добавляем кнопку "Загрузить"
+		// РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ "Р—Р°РіСЂСѓР·РёС‚СЊ"
 		//_____________________________
 		JButton ld = new JButton ("Load");
 		ld.setSize(80, 30);
